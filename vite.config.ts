@@ -11,9 +11,9 @@ export default defineConfig({
 		},
 	},
 	define: {
-		'process.env': '{}',
+		'process.env': {},
 		'process.platform': '"browser"',
-		'process.version': '"v0.0.0"',
+		'process.version': '"v1.0.0"',
 		global: 'globalThis',
 	},
 })

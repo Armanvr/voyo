@@ -1,7 +1,7 @@
 import { useState } from 'preact/hooks'
 
 const AUTH_KEY = 'voyo_auth'
-const CORRECT_CODE = 'ADMIN'
+const CORRECT_CODE = import.meta.env.VITE_AUTH_CODE
 
 interface AuthPageProps {
 	onAuth: () => void

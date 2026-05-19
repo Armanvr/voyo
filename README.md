@@ -18,23 +18,21 @@ npm install
 npm run dev
 ```
 
-Access code: `ADMIN`
-
 ## Pages
 
 | Page | Description |
 |------|-------------|
-| **Auth** | Access code gate — code `ADMIN` |
+| **Auth** | Access code gate — code is given by the developer |
 | **Voyages** | List all trips — open, export JSON, delete |
 | **Créer** | Form to create a new trip (days + steps, dynamic) |
 | **Planner** | Day-by-day map + step checklist for a trip |
 
 ## Features
 
-- Auth gate — all pages protected, ADMIN code required
+- Auth gate — all pages protected, code is given by the developer
 - Trip DB via nedb (localStorage) — London seeded on first run
 - Interactive Leaflet map (CartoDB Positron tiles):
-  - **Gold** = next stop, **Purple** = done, **Indigo** = upcoming
+  - **Gold** = next stop, **Violet** = done, **Indigo** = upcoming
   - Tap marker → map flies to it + list scrolls
   - Tap step icon in list → map flies to that step
 - Check off steps → map updates in real time

@@ -70,7 +70,7 @@
 ## [0.1.0] — 2026-05-19 — MVP
 
 ### Added
-- Auth gate code `ADMIN` (localStorage)
+- Auth gate code (localStorage)
 - Header fixe + day picker `<select>`
 - Leaflet map + markers couleurs, scroll list sur clic marker
 - Checklist étapes par jour, progression localStorage
