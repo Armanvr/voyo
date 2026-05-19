@@ -66,7 +66,13 @@ export function MapView({ day, completedOrders, onMarkerClick }: MapViewProps) {
 				zIndexOffset: isActive ? 1000 : done ? 0 : 500,
 			})
 				.addTo(map)
-				.on('click', () => onMarkerClick(step.ordre))
+				.on('click', () => {
+					map.flyTo([step.coordonnees.lat, step.coordonnees.lon], Math.max(map.getZoom(), 15), {
+						animate: true,
+						duration: 0.5,
+					})
+					onMarkerClick(step.ordre)
+				})
 
 			markersRef.current.push(marker)
 		})

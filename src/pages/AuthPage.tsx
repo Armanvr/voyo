@@ -29,30 +29,36 @@ export function AuthPage({ onAuth }: AuthPageProps) {
 	}
 
 	return (
-		<div class='min-h-screen bg-paper flex flex-col items-center justify-center px-6'>
-			<div class='w-full max-w-xs space-y-10'>
-				<div class='text-center'>
-					<h1 class='text-5xl font-black tracking-tighter text-ink'>voyo</h1>
-					<p class='mt-2 text-sm text-sand'>Plan. Explore. Remember.</p>
+		<div class='min-h-screen bg-ink flex flex-col justify-center px-8'>
+			<div class='w-full max-w-sm'>
+				<div class='mb-14'>
+					<h1 class='text-8xl font-black tracking-tight text-primary leading-none'>voyo</h1>
+					<p class='mt-3 text-xs text-sand uppercase tracking-widest font-medium'>Travel Planner</p>
 				</div>
 
-				<form onSubmit={handleSubmit} class='space-y-4'>
-					<div class={`${shaking ? 'animate-shake' : ''}`}>
+				<form onSubmit={handleSubmit} class='space-y-8'>
+					<div class={shaking ? 'animate-shake' : ''}>
+						<label
+							for='access-code'
+							class='block text-[10px] font-bold text-sand uppercase tracking-widest mb-3'
+						>
+							Code d'accès
+						</label>
 						<input
+							id='access-code'
 							type='text'
 							value={code}
 							onInput={(e) => setCode((e.target as HTMLInputElement).value)}
-							placeholder="Code d'accès"
+							placeholder='••••••'
 							autocomplete='off'
-							class={`w-full px-4 py-3 text-center text-lg font-medium rounded-xl border-2 outline-none transition-colors bg-paper text-ink placeholder:text-sand
-                ${error ? 'border-red-400' : 'border-blush focus:border-primary'}`}
+							class={`w-full bg-transparent border-b-2 pb-3 text-paper text-2xl font-black outline-none placeholder:text-ink/30 transition-colors ${error ? 'border-red-400' : 'border-ink/30 focus:border-primary'}`}
 						/>
 					</div>
 					<button
 						type='submit'
-						class='w-full py-3 rounded-xl bg-primary text-paper font-semibold text-base tracking-wide active:scale-95 transition-transform'
+						class='w-full py-4 bg-primary text-ink font-black text-sm uppercase tracking-widest active:scale-95 transition-transform'
 					>
-						Accéder
+						Accéder →
 					</button>
 				</form>
 			</div>

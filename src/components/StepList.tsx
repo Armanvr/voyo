@@ -27,15 +27,18 @@ export function StepList({ day, dayIdx, isCompleted, onToggle, activeOrdre, onSc
 
 	return (
 		<div class='pb-20'>
-			<div class='px-4 py-3 border-b border-blush'>
-				<p class='text-xs font-semibold text-sand uppercase tracking-widest'>{day.theme}</p>
-				<p class='text-xs text-sand mt-0.5'>
-					Départ {day.depart_hotel}
-					{day.retour_hotel ? ` · Retour ${day.retour_hotel}` : ''}
+			<div class='px-4 py-5 border-b border-ink/8'>
+				<p class='text-[10px] font-bold text-sand uppercase tracking-widest mb-1'>
+					Jour {day.jour} · {day.jour_semaine}
+				</p>
+				<p class='text-base font-black text-ink leading-tight'>{day.theme.split(' - ')[0]}</p>
+				<p class='mt-1 text-xs text-sand'>
+					{day.depart_hotel}
+					{day.retour_hotel ? ` — ${day.retour_hotel}` : ''}
 				</p>
 			</div>
 
-			<div class='divide-y divide-blush/60'>
+			<div class='divide-y divide-ink/8'>
 				{visibleSteps.map((step) => (
 					<StepItem
 						key={step.ordre}
