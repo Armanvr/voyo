@@ -4,7 +4,8 @@ export class EventEmitter {
 	private _events: Record<string, Listener[]> = {}
 
 	on(event: string, listener: Listener): this {
-		;(this._events[event] ??= []).push(listener)
+		if (!this._events[event]) this._events[event] = []
+		this._events[event].push(listener)
 		return this
 	}
 
@@ -40,7 +41,7 @@ export class EventEmitter {
 	emit(event: string, ...args: unknown[]): boolean {
 		const listeners = this._events[event]
 		if (!listeners?.length) return false
-		listeners.slice().forEach((l) => l(...args))
+		for (const l of listeners.slice()) l(...args)
 		return true
 	}
 

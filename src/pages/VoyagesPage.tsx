@@ -65,36 +65,110 @@ export function VoyagesPage({ onOpenTrip }: VoyagesPageProps) {
 
 			<ul class='divide-y divide-ink/8'>
 				{trips.map((doc) => (
-					<li key={doc._id} class='flex items-center gap-3 px-4 py-4'>
-						<button type='button' onClick={() => onOpenTrip(doc)} class='flex-1 min-w-0 text-left'>
-							<p class='font-black text-ink text-base leading-snug'>{doc.name}</p>
-							<p class='text-xs text-sand mt-0.5'>
-								{doc.trip.jours.length} jour{doc.trip.jours.length > 1 ? 's' : ''}
-								{doc.trip.sejour.dates.arrivee ? ` · ${doc.trip.sejour.dates.arrivee}` : ''}
-								{doc.isDemo ? ' · Demo' : ''}
-							</p>
-						</button>
-
+					<li key={doc._id} class='group'>
+						{/* Card — clickable zone clearly separated */}
 						<button
 							type='button'
-							onClick={() => exportTrip(doc)}
-							class='flex-shrink-0 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest border border-ink/20 text-sand hover:border-primary hover:text-primary transition-colors'
-							aria-label={`Exporter ${doc.name}`}
+							onClick={() => onOpenTrip(doc)}
+							class='w-full flex items-center gap-4 px-4 py-5 text-left transition-colors hover:bg-primary/5 active:bg-primary/10 cursor-pointer'
 						>
-							Export
+							{/* Destination icon */}
+							<div class='flex-shrink-0 w-10 h-10 bg-ink flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-ink transition-colors'>
+								<svg
+									viewBox='0 0 16 16'
+									fill='none'
+									stroke='currentColor'
+									stroke-width='1.5'
+									stroke-linecap='round'
+									stroke-linejoin='round'
+									class='w-4 h-4'
+									aria-hidden='true'
+								>
+									<path d='M8 14s-5-4.2-5-7a5 5 0 1 1 10 0c0 2.8-5 7-5 7z' />
+									<circle cx='8' cy='7' r='1.5' fill='currentColor' stroke='none' />
+								</svg>
+							</div>
+
+							{/* Info */}
+							<div class='flex-1 min-w-0'>
+								<p class='font-black text-ink text-base leading-snug group-hover:text-primary transition-colors'>
+									{doc.name}
+								</p>
+								<p class='text-xs text-sand mt-0.5'>
+									{doc.trip.jours.length} jour{doc.trip.jours.length > 1 ? 's' : ''}
+									{doc.trip.sejour.dates.arrivee ? ` · ${doc.trip.sejour.dates.arrivee}` : ''}
+									{doc.isDemo ? ' · Demo' : ''}
+								</p>
+							</div>
+
+							{/* Chevron — clear tap affordance */}
+							<svg
+								viewBox='0 0 16 16'
+								fill='none'
+								stroke='currentColor'
+								stroke-width='2'
+								stroke-linecap='round'
+								stroke-linejoin='round'
+								class='flex-shrink-0 w-4 h-4 text-sand/40 group-hover:text-primary transition-colors'
+								aria-hidden='true'
+							>
+								<path d='M6 4l4 4-4 4' />
+							</svg>
 						</button>
 
-						{!doc.isDemo && (
+						{/* Actions — visually distinct from card */}
+						<div class='flex gap-2 px-4 pb-4 border-t border-ink/5'>
 							<button
 								type='button'
-								onClick={() => handleDelete(doc)}
-								disabled={deletingId === doc._id}
-								class='flex-shrink-0 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest border border-ink/20 text-sand hover:border-red-400 hover:text-red-400 transition-colors disabled:opacity-40'
-								aria-label={`Supprimer ${doc.name}`}
+								onClick={(e) => {
+									e.stopPropagation()
+									exportTrip(doc)
+								}}
+								class='flex items-center gap-1.5 px-3 py-2 text-[10px] font-black uppercase tracking-widest text-sand hover:text-primary hover:bg-primary/5 transition-colors'
+								aria-label={`Exporter ${doc.name}`}
 							>
-								{deletingId === doc._id ? '…' : 'Suppr.'}
+								<svg
+									viewBox='0 0 16 16'
+									fill='none'
+									stroke='currentColor'
+									stroke-width='1.5'
+									stroke-linecap='round'
+									stroke-linejoin='round'
+									class='w-3 h-3'
+									aria-hidden='true'
+								>
+									<path d='M8 2v8M5 7l3 3 3-3M2 12v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-1' />
+								</svg>
+								Exporter
 							</button>
-						)}
+
+							{!doc.isDemo && (
+								<button
+									type='button'
+									onClick={(e) => {
+										e.stopPropagation()
+										handleDelete(doc)
+									}}
+									disabled={deletingId === doc._id}
+									class='flex items-center gap-1.5 px-3 py-2 text-[10px] font-black uppercase tracking-widest text-sand hover:text-red-400 hover:bg-red-400/5 transition-colors disabled:opacity-40'
+									aria-label={`Supprimer ${doc.name}`}
+								>
+									<svg
+										viewBox='0 0 16 16'
+										fill='none'
+										stroke='currentColor'
+										stroke-width='1.5'
+										stroke-linecap='round'
+										stroke-linejoin='round'
+										class='w-3 h-3'
+										aria-hidden='true'
+									>
+										<path d='M3 4h10M6 4V2h4v2M5 4v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V4' />
+									</svg>
+									{deletingId === doc._id ? '…' : 'Supprimer'}
+								</button>
+							)}
+						</div>
 					</li>
 				))}
 			</ul>

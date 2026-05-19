@@ -51,8 +51,14 @@ export function AuthPage({ onAuth }: AuthPageProps) {
 							onInput={(e) => setCode((e.target as HTMLInputElement).value)}
 							placeholder='••••••'
 							autocomplete='off'
+							autofocus
 							class={`w-full bg-transparent border-b-2 pb-3 text-paper text-2xl font-black outline-none placeholder:text-ink/30 transition-colors ${error ? 'border-red-400' : 'border-ink/30 focus:border-primary'}`}
 						/>
+						<p
+							class={`mt-2 text-[10px] uppercase tracking-widest transition-colors ${error ? 'text-red-400' : 'text-sand/40'}`}
+						>
+							{error ? 'Code incorrect' : 'Tapez votre code · Entrée pour valider'}
+						</p>
 					</div>
 					<button
 						type='submit'

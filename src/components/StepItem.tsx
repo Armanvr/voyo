@@ -124,8 +124,11 @@ export function StepItem({ step, completed, active, onToggle, onStepClick, inner
 			<button
 				type='button'
 				onClick={onStepClick}
-				class={`flex-shrink-0 w-8 h-8 flex items-center justify-center transition-colors ${active ? 'text-primary' : 'text-ink/40'} ${onStepClick ? 'cursor-pointer hover:text-primary' : 'cursor-default'}`}
-				aria-label={onStepClick ? `Centrer sur ${step.lieu}` : undefined}
+				title={onStepClick ? 'Voir sur la carte' : undefined}
+				class={`flex-shrink-0 w-8 h-8 flex items-center justify-center transition-colors rounded-sm
+					${active ? 'text-primary bg-primary/10' : 'text-ink/40 bg-transparent'}
+					${onStepClick ? 'cursor-pointer hover:text-primary hover:bg-primary/10 active:bg-primary/20' : 'cursor-default'}`}
+				aria-label={onStepClick ? `Voir ${step.lieu} sur la carte` : undefined}
 				tabIndex={onStepClick ? 0 : -1}
 			>
 				{getIcon(step.type)}
