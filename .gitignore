@@ -1,7 +1,12 @@
+# Environment variables
 .env
+
+# Dependencies
+.claude/
+.vite/
 node_modules/
 dist/
-.vite/
-.claude/
+
+# Documentation
 docs/
 SESSION.md
