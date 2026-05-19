@@ -43,7 +43,7 @@ export function MapView({ day, completedOrders, onMarkerClick }: MapViewProps) {
 		const map = mapRef.current
 		if (!map) return
 
-		markersRef.current.forEach((m) => m.remove())
+		for (const m of markersRef.current) m.remove()
 		markersRef.current = []
 
 		const mappable = day.etapes.filter((s) => s.type !== 'depart' && s.type !== 'retour' && s.coordonnees)

@@ -52,7 +52,7 @@ export function StepItem({ step, completed, active, onToggle, innerRef }: StepIt
 				aria-label={completed ? 'Marquer incomplet' : 'Marquer complété'}
 			>
 				{completed && (
-					<svg class='w-3 h-3' viewBox='0 0 12 12' fill='none'>
+					<svg class='w-3 h-3' viewBox='0 0 12 12' fill='none' aria-hidden='true'>
 						<path
 							d='M2 6l3 3 5-5'
 							stroke='currentColor'
