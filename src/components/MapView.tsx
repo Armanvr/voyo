@@ -58,7 +58,7 @@ export function MapView({ day, completedOrders, onMarkerClick, focusOrdre }: Map
 			const done = completedOrders.includes(step.ordre)
 			const isActive = step.ordre === nextOrdre
 
-			const color = done ? '#062540' : isActive ? '#E89C12' : '#04060D'
+			const color = done ? '#5B4E8C' : isActive ? '#FFC857' : '#1E1B3A'
 			const size = isActive ? 18 : 12
 
 			const marker = L.marker([step.coordonnees.lat, step.coordonnees.lon], {
