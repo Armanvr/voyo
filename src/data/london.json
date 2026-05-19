@@ -1,0 +1,695 @@
+{
+  "sejour": {
+    "destination": "Londres",
+    "hotel": {
+      "nom": "Hotel Amelia Street",
+      "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+      "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+      "metro_proche": "Kennington (Northern line, 10 min à pied)"
+    },
+    "dates": {
+      "arrivee": "2026-05-27",
+      "depart": "2026-05-31",
+      "duree_nuits": 4
+    },
+    "infos_transport": {
+      "carte_recommandee": "Oyster Card",
+      "modes_utilises": ["bus", "metro", "pied", "thames_clipper"],
+      "taux_change": "1 GBP = 1.15 EUR"
+    }
+  },
+  "jours": [
+    {
+      "jour": 1,
+      "date": "2026-05-27",
+      "jour_semaine": "Mercredi",
+      "theme": "Arrivée - South Bank - Tower Bridge - The Shard",
+      "contrainte": "Départ hôtel 12h00 (arrivée Eurostar 10h30 + 1h30 delta)",
+      "depart_hotel": "12:00",
+      "retour_hotel": "21:00",
+      "etapes": [
+        {
+          "ordre": 0,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_depart": "12:00",
+          "type": "depart"
+        },
+        {
+          "ordre": 1,
+          "lieu": "Graffiti Tunnel (Leake Street)",
+          "adresse": "Leake Street, Lambeth, SE1 7NN",
+          "coordonnees": { "lat": 51.501834, "lon": -0.115544 },
+          "heure_arrivee": "12:25",
+          "duree_visite_min": 45,
+          "type": "culture",
+          "gratuit": true,
+          "transport_depuis_precedent": {
+            "mode": "bus",
+            "ligne": "343",
+            "duree_min": 20,
+            "cout_gbp_par_pers": 1.75
+          }
+        },
+        {
+          "ordre": 2,
+          "lieu": "Tate Modern",
+          "adresse": "Bankside, London SE1 9TG",
+          "coordonnees": { "lat": 51.507595, "lon": -0.099356 },
+          "heure_arrivee": "13:00",
+          "duree_visite_min": 120,
+          "type": "dejeuner_culture",
+          "gratuit": true,
+          "note": "Expo Tracey Emin - Café au 10e étage avec vue",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 15,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 3,
+          "lieu": "Shakespeare's Globe",
+          "adresse": "21 New Globe Walk, Bankside, SE1 9DT",
+          "coordonnees": { "lat": 51.508076, "lon": -0.097194 },
+          "heure_arrivee": "15:15",
+          "duree_visite_min": 45,
+          "type": "gouter_culture",
+          "gratuit": true,
+          "note": "Vue extérieure + café du Globe",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 3,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 4,
+          "lieu": "Tower Bridge",
+          "adresse": "Tower Bridge Rd, London SE1 2UP",
+          "coordonnees": { "lat": 51.505456, "lon": -0.075356 },
+          "heure_arrivee": "16:15",
+          "duree_visite_min": 90,
+          "type": "attraction",
+          "gratuit": false,
+          "note": "Sol en verre + expo intérieure - Réserver en ligne",
+          "transport_depuis_precedent": {
+            "mode": "thames_clipper",
+            "trajet": "Bankside Pier → Tower Pier",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 4.10
+          }
+        },
+        {
+          "ordre": 5,
+          "lieu": "The Shard",
+          "adresse": "32 London Bridge St, London SE1 9SG",
+          "coordonnees": { "lat": 51.5045, "lon": -0.0865 },
+          "heure_arrivee": "17:55",
+          "duree_visite_min": 75,
+          "type": "attraction",
+          "gratuit": false,
+          "note": "Vue panoramique au coucher du soleil - Réserver en ligne",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 10,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 6,
+          "lieu": "Dîner - London Bridge",
+          "adresse": "Borough Market area, London Bridge, SE1",
+          "coordonnees": { "lat": 51.5055, "lon": -0.0870 },
+          "heure_arrivee": "19:15",
+          "duree_min": 90,
+          "type": "diner",
+          "note": "Franco Manca / Bunsik / Honest Burgers",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 7,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_arrivee": "21:00",
+          "type": "retour",
+          "transport_depuis_precedent": {
+            "mode": "bus",
+            "ligne": "344",
+            "trajet": "London Bridge → Hôtel",
+            "duree_min": 20,
+            "cout_gbp_par_pers": 1.75
+          }
+        }
+      ]
+    },
+    {
+      "jour": 2,
+      "date": "2026-05-28",
+      "jour_semaine": "Jeudi",
+      "theme": "Westminster - Buckingham Palace - Natural History Museum - Kensington Palace",
+      "depart_hotel": "10:00",
+      "retour_hotel": "21:00",
+      "etapes": [
+        {
+          "ordre": 0,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_depart": "10:00",
+          "type": "depart"
+        },
+        {
+          "ordre": 1,
+          "lieu": "Westminster Abbey",
+          "adresse": "20 Deans Yd, Westminster, SW1P 3PA",
+          "coordonnees": { "lat": 51.49937, "lon": -0.127299 },
+          "heure_arrivee": "10:20",
+          "duree_visite_min": 90,
+          "type": "attraction",
+          "gratuit": false,
+          "note": "Audioguide inclus - Réserver en ligne",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Kennington → Westminster (Northern line)",
+            "duree_min": 12,
+            "cout_gbp_par_pers": 2.80
+          }
+        },
+        {
+          "ordre": 2,
+          "lieu": "Big Ben + 10 Downing Street",
+          "adresse": "Westminster Bridge, London SW1A 2JR",
+          "coordonnees": { "lat": 51.5034, "lon": -0.12754 },
+          "heure_arrivee": "12:00",
+          "duree_visite_min": 25,
+          "type": "gratuit",
+          "gratuit": true,
+          "note": "Vue extérieure - Photo depuis Westminster Bridge",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 7,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 3,
+          "lieu": "Buckingham Palace",
+          "adresse": "Buckingham Palace, London SW1A 1AA",
+          "coordonnees": { "lat": 51.501364, "lon": -0.14189 },
+          "heure_arrivee": "12:30",
+          "duree_visite_min": 30,
+          "type": "gratuit",
+          "gratuit": true,
+          "note": "Vue extérieure",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 13,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 4,
+          "lieu": "Parc St James - Déjeuner",
+          "adresse": "St James's Park, London SW1A 2BJ",
+          "coordonnees": { "lat": 51.502472, "lon": -0.13505 },
+          "heure_arrivee": "13:00",
+          "duree_min": 120,
+          "type": "dejeuner",
+          "gratuit": true,
+          "note": "Pique-nique royal - Pélicans sur le lac",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 5,
+          "lieu": "Natural History Museum",
+          "adresse": "Cromwell Rd, South Kensington, SW7 5BD",
+          "coordonnees": { "lat": 51.496715, "lon": -0.176367 },
+          "heure_arrivee": "15:10",
+          "duree_visite_min": 90,
+          "type": "gouter_culture",
+          "gratuit": true,
+          "note": "Gratuit - Baleine bleue - Dinosaures - Café du musée",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Victoria → South Kensington (District line)",
+            "duree_min": 12,
+            "cout_gbp_par_pers": 2.80
+          }
+        },
+        {
+          "ordre": 6,
+          "lieu": "Kensington Palace",
+          "adresse": "Kensington Gardens, London W8 4PX",
+          "coordonnees": { "lat": 51.504976, "lon": -0.187681 },
+          "heure_arrivee": "17:00",
+          "duree_visite_min": 90,
+          "type": "attraction",
+          "gratuit": false,
+          "note": "Ancienne résidence de Diana - Jardins gratuits jusqu'à 18h",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 12,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 7,
+          "lieu": "Dîner - High Street Kensington",
+          "adresse": "High Street Kensington, London W8",
+          "coordonnees": { "lat": 51.504, "lon": -0.177 },
+          "heure_arrivee": "19:00",
+          "duree_min": 90,
+          "type": "diner",
+          "note": "The Breakfast Club / Swiss Butter / Bill's",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 8,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 8,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_arrivee": "21:00",
+          "type": "retour",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "High St Kensington → Victoria (District) → Kennington (Northern)",
+            "duree_min": 25,
+            "cout_gbp_par_pers": 2.80
+          }
+        }
+      ]
+    },
+    {
+      "jour": 3,
+      "date": "2026-05-29",
+      "jour_semaine": "Vendredi",
+      "theme": "Relève de la Garde 11h - National Gallery - Covent Garden - Outernet",
+      "evenement_special": "Relève de la Garde - Buckingham Palace - 10h43 (confirmé vendredi 29 mai)",
+      "depart_hotel": "10:00",
+      "retour_hotel": "21:00",
+      "etapes": [
+        {
+          "ordre": 0,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_depart": "10:00",
+          "type": "depart"
+        },
+        {
+          "ordre": 1,
+          "lieu": "Buckingham Palace - Relève de la Garde",
+          "adresse": "Buckingham Palace, London SW1A 1AA",
+          "coordonnees": { "lat": 51.501364, "lon": -0.14189 },
+          "heure_arrivee": "10:30",
+          "heure_ceremonie": "10:43",
+          "fin_ceremonie": "11:45",
+          "duree_visite_min": 75,
+          "type": "evenement",
+          "gratuit": true,
+          "note": "Arriver 10h30 - Meilleur spot: Victoria Memorial ou grille nord",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Kennington → Westminster (Northern line) + pied 8 min",
+            "duree_min": 20,
+            "cout_gbp_par_pers": 2.80
+          }
+        },
+        {
+          "ordre": 2,
+          "lieu": "Trafalgar Square",
+          "adresse": "Trafalgar Square, London WC2N 5DN",
+          "coordonnees": { "lat": 51.508039, "lon": -0.128069 },
+          "heure_arrivee": "12:00",
+          "duree_visite_min": 30,
+          "type": "gratuit",
+          "gratuit": true,
+          "note": "Colonne Nelson - Fontaines - Lions en bronze",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "trajet": "Via The Mall",
+            "duree_min": 20,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 3,
+          "lieu": "National Gallery + Expo Zurbarán",
+          "adresse": "Trafalgar Square, London WC2N 5DN",
+          "coordonnees": { "lat": 51.508929, "lon": -0.128299 },
+          "heure_arrivee": "12:45",
+          "duree_visite_min": 120,
+          "type": "dejeuner_culture",
+          "gratuit": false,
+          "note": "Collection permanente gratuite - Expo Zurbarán optionnelle (GBP 20-22/pers) - Café du musée pour déjeuner",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 2,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 4,
+          "lieu": "Leicester Square + Chinatown",
+          "adresse": "Leicester Square, London WC2H 7NA",
+          "coordonnees": { "lat": 51.510359, "lon": -0.130062 },
+          "heure_arrivee": "15:00",
+          "duree_visite_min": 45,
+          "type": "gouter",
+          "gratuit": true,
+          "note": "Goûter Tsujiri matcha ou Ben's Cookies - Chinatown Gerrard Street",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 5,
+          "lieu": "Covent Garden Market",
+          "adresse": "Covent Garden, London WC2E 8RF",
+          "coordonnees": { "lat": 51.511657, "lon": -0.124044 },
+          "heure_arrivee": "15:45",
+          "duree_visite_min": 90,
+          "type": "culture",
+          "gratuit": true,
+          "note": "Artistes de rue - Boutiques - Ambiance festive",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 8,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 6,
+          "lieu": "Outernet London",
+          "adresse": "Denmark Street, London WC2H 8NL",
+          "coordonnees": { "lat": 51.515612, "lon": -0.129926 },
+          "heure_arrivee": "17:15",
+          "duree_visite_min": 60,
+          "type": "culture",
+          "gratuit": true,
+          "note": "Écrans immersifs géants - Art numérique gratuit",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 7,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 7,
+          "lieu": "Dîner - Soho / Covent Garden",
+          "adresse": "Soho, London W1D",
+          "coordonnees": { "lat": 51.513, "lon": -0.131 },
+          "heure_arrivee": "19:00",
+          "duree_min": 90,
+          "type": "diner",
+          "note": "Red Dog Saloon / Shake Shack / Honest Burgers",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 8,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_arrivee": "21:00",
+          "type": "retour",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Charing Cross → Kennington (Northern line)",
+            "duree_min": 15,
+            "cout_gbp_par_pers": 2.80
+          }
+        }
+      ]
+    },
+    {
+      "jour": 4,
+      "date": "2026-05-30",
+      "jour_semaine": "Samedi",
+      "theme": "Tour de Londres - Borough Market - St Paul's - Sky Garden - Camden",
+      "depart_hotel": "10:00",
+      "retour_hotel": "21:00",
+      "etapes": [
+        {
+          "ordre": 0,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_depart": "10:00",
+          "type": "depart"
+        },
+        {
+          "ordre": 1,
+          "lieu": "Tour de Londres",
+          "adresse": "Tower of London, London EC3N 4AB",
+          "coordonnees": { "lat": 51.508112, "lon": -0.075949 },
+          "heure_arrivee": "10:15",
+          "duree_visite_min": 90,
+          "type": "attraction",
+          "gratuit": false,
+          "note": "Ouvre à 9h le samedi - Beefeaters + Joyaux de la Couronne - Réserver en ligne",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Kennington → London Bridge (Northern line)",
+            "duree_min": 10,
+            "cout_gbp_par_pers": 2.40
+          }
+        },
+        {
+          "ordre": 2,
+          "lieu": "Borough Market",
+          "adresse": "8 Southwark St, London SE1 1TL",
+          "coordonnees": { "lat": 51.505583, "lon": -0.090481 },
+          "heure_arrivee": "12:00",
+          "duree_min": 120,
+          "type": "dejeuner",
+          "gratuit": true,
+          "note": "Ouvert le samedi 9h-17h - Street food international - Le jour le plus animé",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 12,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 3,
+          "lieu": "St Paul's Cathedral",
+          "adresse": "St. Paul's Churchyard, London EC4M 8AD",
+          "coordonnees": { "lat": 51.513845, "lon": -0.098351 },
+          "heure_arrivee": "14:00",
+          "duree_visite_min": 90,
+          "type": "attraction",
+          "gratuit": false,
+          "note": "Whispering Gallery - Vue spectaculaire depuis le dôme - Réserver en ligne",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 20,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 4,
+          "lieu": "Sky Garden",
+          "adresse": "1 Sky Garden Walk, London EC3M 8AF",
+          "coordonnees": { "lat": 51.511242, "lon": -0.083549 },
+          "heure_arrivee": "15:45",
+          "duree_visite_min": 75,
+          "type": "gouter_attraction",
+          "gratuit": true,
+          "note": "GRATUIT mais réservation OBLIGATOIRE sur skygarden.london - Faire 3 semaines à l'avance",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 13,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 5,
+          "lieu": "Spitalfields Market",
+          "adresse": "16 Horner Square, Spitalfields, E1 6EW",
+          "coordonnees": { "lat": 51.519413, "lon": -0.076069 },
+          "heure_arrivee": "17:15",
+          "duree_visite_min": 60,
+          "type": "marche",
+          "gratuit": true,
+          "note": "Marché couvert East London - Tendance",
+          "transport_depuis_precedent": {
+            "mode": "thames_clipper",
+            "trajet": "Tower Pier → Blackfriars Pier + pied 10 min",
+            "duree_min": 25,
+            "cout_gbp_par_pers": 4.10
+          }
+        },
+        {
+          "ordre": 6,
+          "lieu": "Camden Market + Cyberdog",
+          "adresse": "Camden Lock, Chalk Farm Rd, London NW1 8AF",
+          "coordonnees": { "lat": 51.539026, "lon": -0.142552 },
+          "heure_arrivee": "18:30",
+          "duree_visite_min": 60,
+          "type": "marche",
+          "gratuit": true,
+          "note": "Marché alternatif - Cyberdog boutique futuriste - Street food rock",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Liverpool Street → Camden Road (Overground)",
+            "duree_min": 25,
+            "cout_gbp_par_pers": 2.80
+          }
+        },
+        {
+          "ordre": 7,
+          "lieu": "Dîner - Camden",
+          "adresse": "Camden Market area, London NW1",
+          "coordonnees": { "lat": 51.5388, "lon": -0.1427 },
+          "heure_arrivee": "19:30",
+          "duree_min": 90,
+          "type": "diner",
+          "note": "Street food Camden / The Pig's Head pub",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 3,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 8,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_arrivee": "21:00",
+          "type": "retour",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Camden Town → Kennington (Northern line direct)",
+            "duree_min": 22,
+            "cout_gbp_par_pers": 2.80
+          }
+        }
+      ]
+    },
+    {
+      "jour": 5,
+      "date": "2026-05-31",
+      "jour_semaine": "Dimanche",
+      "theme": "British Museum - Carnaby Street - St Pancras International (train 18h30)",
+      "contrainte": "Retour à St Pancras pour 17h00 MAX - Train Eurostar 18h30",
+      "point_final": "St Pancras International Station",
+      "depart_hotel": "10:00",
+      "arrivee_gare": "17:00",
+      "train_depart": "18:30",
+      "etapes": [
+        {
+          "ordre": 0,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_depart": "10:00",
+          "type": "depart",
+          "note": "Départ avec bagages"
+        },
+        {
+          "ordre": 1,
+          "lieu": "St Pancras International - Consigne bagages",
+          "adresse": "Euston Rd, London N1C 4QP",
+          "coordonnees": { "lat": 51.5311, "lon": -0.1259 },
+          "heure_arrivee": "10:40",
+          "duree_min": 20,
+          "type": "logistique",
+          "note": "Déposer les bagages en consigne (GBP 10/bagage) - Admirer l'architecture victorienne gothique",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Kennington → London Bridge (Northern) → Jubilee → King's Cross St Pancras",
+            "duree_min": 25,
+            "cout_gbp_par_pers": 2.80
+          }
+        },
+        {
+          "ordre": 2,
+          "lieu": "British Museum",
+          "adresse": "Great Russell St, London WC1B 3DG",
+          "coordonnees": { "lat": 51.5194, "lon": -0.127 },
+          "heure_arrivee": "11:00",
+          "duree_visite_min": 180,
+          "type": "dejeuner_culture",
+          "gratuit": true,
+          "note": "Gratuit - Pierre de Rosette - Momies égyptiennes - Café Great Court pour déjeuner",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 3,
+          "lieu": "Carnaby Street",
+          "adresse": "Carnaby Street, London W1F 7DY",
+          "coordonnees": { "lat": 51.5131, "lon": -0.1389 },
+          "heure_arrivee": "14:15",
+          "duree_visite_min": 45,
+          "type": "gouter_shopping",
+          "gratuit": true,
+          "note": "Boutiques branchées - Dernier goûter en chemin",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Tottenham Court Road → Oxford Circus (Central line)",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 2.40
+          }
+        },
+        {
+          "ordre": 4,
+          "lieu": "Regent Street + Hamleys",
+          "adresse": "188-196 Regent Street, London W1B 5BT",
+          "coordonnees": { "lat": 51.5131, "lon": -0.1401 },
+          "heure_arrivee": "15:10",
+          "duree_visite_min": 45,
+          "type": "shopping",
+          "gratuit": true,
+          "note": "Dernier coup d'oeil - Souvenirs - Hamleys plus grand magasin de jouets au monde",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 2,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 5,
+          "lieu": "St Pancras International",
+          "adresse": "Euston Rd, London N1C 4QP",
+          "coordonnees": { "lat": 51.5311, "lon": -0.1259 },
+          "heure_arrivee": "17:00",
+          "heure_train": "18:30",
+          "type": "point_final",
+          "note": "Récupérer bagages en consigne - Check-in Eurostar - Départ direction Paris",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Oxford Circus → King's Cross St Pancras (Victoria line)",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 2.40
+          }
+        }
+      ]
+    }
+  ]
+}
