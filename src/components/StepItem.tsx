@@ -90,10 +90,11 @@ interface StepItemProps {
 	completed: boolean
 	active: boolean
 	onToggle: () => void
+	onStepClick?: () => void
 	innerRef?: (el: HTMLElement | null) => void
 }
 
-export function StepItem({ step, completed, active, onToggle, innerRef }: StepItemProps) {
+export function StepItem({ step, completed, active, onToggle, onStepClick, innerRef }: StepItemProps) {
 	const transport = step.transport_depuis_precedent
 
 	return (
@@ -120,11 +121,15 @@ export function StepItem({ step, completed, active, onToggle, innerRef }: StepIt
 				)}
 			</button>
 
-			<div
-				class={`flex-shrink-0 w-8 h-8 flex items-center justify-center ${active ? 'text-primary' : 'text-ink/40'}`}
+			<button
+				type='button'
+				onClick={onStepClick}
+				class={`flex-shrink-0 w-8 h-8 flex items-center justify-center transition-colors ${active ? 'text-primary' : 'text-ink/40'} ${onStepClick ? 'cursor-pointer hover:text-primary' : 'cursor-default'}`}
+				aria-label={onStepClick ? `Centrer sur ${step.lieu}` : undefined}
+				tabIndex={onStepClick ? 0 : -1}
 			>
 				{getIcon(step.type)}
-			</div>
+			</button>
 
 			<div class='flex-1 min-w-0'>
 				<div class='flex items-baseline justify-between gap-2'>

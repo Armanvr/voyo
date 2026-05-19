@@ -6,6 +6,7 @@ interface MapViewProps {
 	day: Day
 	completedOrders: number[]
 	onMarkerClick: (ordre: number) => void
+	focusOrdre?: number | null
 }
 
 function makeMarkerIcon(color: string, size: number): L.DivIcon {
@@ -18,7 +19,7 @@ function makeMarkerIcon(color: string, size: number): L.DivIcon {
 	})
 }
 
-export function MapView({ day, completedOrders, onMarkerClick }: MapViewProps) {
+export function MapView({ day, completedOrders, onMarkerClick, focusOrdre }: MapViewProps) {
 	const containerRef = useRef<HTMLDivElement>(null)
 	const mapRef = useRef<L.Map | null>(null)
 	const markersRef = useRef<L.Marker[]>([])
@@ -77,6 +78,19 @@ export function MapView({ day, completedOrders, onMarkerClick }: MapViewProps) {
 			markersRef.current.push(marker)
 		})
 	}, [day, completedOrders])
+
+	// Fly to step when user clicks it in the list
+	useEffect(() => {
+		if (focusOrdre === null || focusOrdre === undefined) return
+		const map = mapRef.current
+		if (!map) return
+		const step = day.etapes.find((s) => s.ordre === focusOrdre)
+		if (!step?.coordonnees || (step.coordonnees.lat === 0 && step.coordonnees.lon === 0)) return
+		map.flyTo([step.coordonnees.lat, step.coordonnees.lon], Math.max(map.getZoom(), 16), {
+			animate: true,
+			duration: 0.5,
+		})
+	}, [focusOrdre])
 
 	// Fit bounds only when day changes (not on every toggle)
 	useEffect(() => {

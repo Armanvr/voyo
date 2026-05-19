@@ -2,23 +2,25 @@ import { useState } from 'preact/hooks'
 
 type Progress = Record<string, number[]>
 
-const STORAGE_KEY = 'voyo_progress'
+function storageKey(ns: string) {
+	return `voyo_progress_${ns}`
+}
 
-function load(): Progress {
+function load(ns: string): Progress {
 	try {
-		const raw = localStorage.getItem(STORAGE_KEY)
+		const raw = localStorage.getItem(storageKey(ns))
 		return raw ? JSON.parse(raw) : {}
 	} catch {
 		return {}
 	}
 }
 
-function persist(progress: Progress): void {
-	localStorage.setItem(STORAGE_KEY, JSON.stringify(progress))
+function persist(ns: string, progress: Progress): void {
+	localStorage.setItem(storageKey(ns), JSON.stringify(progress))
 }
 
-export function useProgress() {
-	const [progress, setProgress] = useState<Progress>(load)
+export function useProgress(tripId = 'default') {
+	const [progress, setProgress] = useState<Progress>(() => load(tripId))
 
 	function isCompleted(dayIdx: number, ordre: number): boolean {
 		return progress[String(dayIdx)]?.includes(ordre) ?? false
@@ -30,7 +32,7 @@ export function useProgress() {
 			const current = prev[key] ?? []
 			const next = current.includes(ordre) ? current.filter((o) => o !== ordre) : [...current, ordre]
 			const updated = { ...prev, [key]: next }
-			persist(updated)
+			persist(tripId, updated)
 			return updated
 		})
 	}

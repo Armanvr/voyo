@@ -51,14 +51,43 @@ Construction de **Voyo** from scratch : une web app mobile-first de planificatio
 | CartoDB Positron | Map minimaliste sans config API key |
 | Biome v2 | Linter + formatter all-in-one, fast |
 
+### Multi-pages + DB (v0.3)
+- App passe de 2 pages à 4 : Auth → Voyages → Créer → Planner
+- `@seald-io/nedb` : DB embarquée persistée dans localStorage
+- `db.ts` : wrapper async (init, find, insert, remove) + seed London au premier lancement
+- `useProgress(tripId)` : progress namespaced par trip (avant = global)
+- `VoyagesPage` : liste tous les voyages, export JSON, suppression (trips demo non supprimables)
+- `CreerPage` : formulaire dynamique — destination, dates, hôtel, jours (add/remove), étapes par jour (add/remove)
+- `BottomNav` : 2 onglets (Voyages / Créer), masqué dans le planner
+- Step icon → `map.flyTo()` (sens inverse : liste → carte)
+- Header : bouton retour + nom du trip dans le planner
+
+## Décisions techniques notables
+
+| Décision | Raison |
+|----------|--------|
+| State-based routing (pas de router) | Scope à 4 vues, zero overhead |
+| `useProgress(tripId)` namespace | Évite collision progress entre trips |
+| `fitBounds` dans effect séparé | Évite le snap map à chaque checkbox |
+| `onScrollTo` via ref callback | Évite prop drilling d'un impératif scroll |
+| `focusOrdre` prop sur MapView | Déclaratif, un seul state → flyTo sans ref exposed |
+| nedb `inMemoryOnly=false` browser | localStorage auto via browser bundle de @seald-io/nedb |
+| CartoDB Positron | Map minimaliste sans config API key |
+| Biome v2 | Linter + formatter all-in-one, fast |
+
 ## Fichiers clés
 
 ```
-src/app.tsx              auth guard
-src/hooks/useProgress.ts localStorage state
-src/components/MapView.tsx  Leaflet + flyTo
-src/components/StepItem.tsx SVG icons + Uber UI
-src/pages/AuthPage.tsx   dark landing page
-docs/superpowers/plans/  implementation plan
-docs/superpowers/specs/  design spec
+src/app.tsx                   routing + auth guard + DB init
+src/db.ts                     nedb wrapper
+src/hooks/useProgress.ts      progress par trip via localStorage
+src/components/MapView.tsx    Leaflet + flyTo (marker ET step click)
+src/components/StepItem.tsx   SVG icons + Uber UI + onStepClick
+src/components/BottomNav.tsx  navigation bas de page
+src/pages/AuthPage.tsx        dark landing
+src/pages/VoyagesPage.tsx     liste trips
+src/pages/CreerPage.tsx       formulaire création
+src/pages/TripPage.tsx        planner (map + liste)
+docs/superpowers/plans/       plan d'implémentation initial
+docs/superpowers/specs/       spec design
 ```

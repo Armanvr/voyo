@@ -9,9 +9,10 @@ interface StepListProps {
 	onToggle: (dayIdx: number, ordre: number) => void
 	activeOrdre: number | null
 	onScrollTo?: (scrollFn: (ordre: number) => void) => void
+	onStepClick?: (ordre: number) => void
 }
 
-export function StepList({ day, dayIdx, isCompleted, onToggle, activeOrdre, onScrollTo }: StepListProps) {
+export function StepList({ day, dayIdx, isCompleted, onToggle, activeOrdre, onScrollTo, onStepClick }: StepListProps) {
 	const itemRefs = useRef<Record<number, HTMLElement | null>>({})
 
 	function scrollTo(ordre: number) {
@@ -46,6 +47,7 @@ export function StepList({ day, dayIdx, isCompleted, onToggle, activeOrdre, onSc
 						completed={isCompleted(dayIdx, step.ordre)}
 						active={step.ordre === activeOrdre}
 						onToggle={() => onToggle(dayIdx, step.ordre)}
+						onStepClick={onStepClick ? () => onStepClick(step.ordre) : undefined}
 						innerRef={(el) => {
 							itemRefs.current[step.ordre] = el
 						}}

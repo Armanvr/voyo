@@ -2,13 +2,19 @@ import { useRef, useState } from 'preact/hooks'
 import { Header } from '../components/Header'
 import { MapView } from '../components/MapView'
 import { StepList } from '../components/StepList'
-import { londonTrip } from '../data/london'
 import { useProgress } from '../hooks/useProgress'
+import type { Trip } from '../types'
 
-export function TripPage() {
-	const trip = londonTrip
+interface TripPageProps {
+	trip: Trip
+	tripId: string
+	onBack: () => void
+}
+
+export function TripPage({ trip, tripId, onBack }: TripPageProps) {
 	const [activeDayIdx, setActiveDayIdx] = useState(0)
-	const { isCompleted, toggleStep, isDayComplete } = useProgress()
+	const [focusOrdre, setFocusOrdre] = useState<number | null>(null)
+	const { isCompleted, toggleStep, isDayComplete } = useProgress(tripId)
 	const scrollToRef = useRef<((ordre: number) => void) | null>(null)
 
 	const activeDay = trip.jours[activeDayIdx]
@@ -20,6 +26,12 @@ export function TripPage() {
 
 	function handleMarkerClick(ordre: number) {
 		scrollToRef.current?.(ordre)
+	}
+
+	function handleStepClick(ordre: number) {
+		setFocusOrdre(ordre)
+		// Reset after flyTo triggers so next click on same step still fires
+		setTimeout(() => setFocusOrdre(null), 600)
 	}
 
 	function handleDayChange(idx: number) {
@@ -41,10 +53,17 @@ export function TripPage() {
 							.map((s) => s.ordre),
 					)
 				}
+				onBack={onBack}
+				tripName={trip.sejour.destination}
 			/>
 
 			<div class='pt-14'>
-				<MapView day={activeDay} completedOrders={completedOrders} onMarkerClick={handleMarkerClick} />
+				<MapView
+					day={activeDay}
+					completedOrders={completedOrders}
+					onMarkerClick={handleMarkerClick}
+					focusOrdre={focusOrdre}
+				/>
 
 				<StepList
 					day={activeDay}
@@ -55,6 +74,7 @@ export function TripPage() {
 					onScrollTo={(fn) => {
 						scrollToRef.current = fn
 					}}
+					onStepClick={handleStepClick}
 				/>
 			</div>
 		</div>
