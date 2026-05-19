@@ -38,6 +38,7 @@ export function MapView({ day, completedOrders, onMarkerClick }: MapViewProps) {
     }
   }, [])
 
+  // Rebuild markers when day or completion state changes
   useEffect(() => {
     const map = mapRef.current
     if (!map) return
@@ -69,12 +70,23 @@ export function MapView({ day, completedOrders, onMarkerClick }: MapViewProps) {
 
       markersRef.current.push(marker)
     })
+  }, [day, completedOrders])
+
+  // Fit bounds only when day changes (not on every toggle)
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map) return
+
+    const mappable = day.etapes.filter(
+      s => s.type !== 'depart' && s.type !== 'retour' && s.coordonnees
+    )
+    if (mappable.length === 0) return
 
     const bounds = L.latLngBounds(
       mappable.map(s => [s.coordonnees.lat, s.coordonnees.lon] as [number, number])
     )
     map.fitBounds(bounds, { padding: [24, 24], maxZoom: 15 })
-  }, [day, completedOrders])
+  }, [day])
 
   return (
     <div

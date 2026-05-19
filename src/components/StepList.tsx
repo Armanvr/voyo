@@ -23,7 +23,7 @@ export function StepList({ day, dayIdx, isCompleted, onToggle, activeOrdre, onSc
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []) // scrollTo reads from itemRefs.current which is always current; register once
 
-  const visibleSteps = day.etapes.filter(s => s.type !== 'depart')
+  const visibleSteps = day.etapes.filter(s => s.type !== 'depart' && s.type !== 'retour')
 
   return (
     <div class="pb-20">
