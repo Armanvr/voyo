@@ -1,4 +1,4 @@
-import { useRef } from 'preact/hooks'
+import { useEffect, useRef } from 'preact/hooks'
 import type { Day } from '../types'
 import { StepItem } from './StepItem'
 
@@ -18,7 +18,10 @@ export function StepList({ day, dayIdx, isCompleted, onToggle, activeOrdre, onSc
     itemRefs.current[ordre]?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
-  if (onScrollTo) onScrollTo(scrollTo)
+  useEffect(() => {
+    if (onScrollTo) onScrollTo(scrollTo)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []) // scrollTo reads from itemRefs.current which is always current; register once
 
   const visibleSteps = day.etapes.filter(s => s.type !== 'depart')
 
