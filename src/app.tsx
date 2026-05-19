@@ -1,11 +1,16 @@
+import { useState } from 'preact/hooks'
+import { AuthPage } from './pages/AuthPage'
+import { TripPage } from './pages/TripPage'
+
+const AUTH_KEY = 'voyo_auth'
+
 export function App() {
-	return (
-		<main class="min-h-screen bg-zinc-900 text-zinc-100 flex items-center justify-center">
-			<div class="text-center space-y-4">
-				<h1 class="text-4xl font-bold">voyo</h1>
-				<p class="text-zinc-400">Ready to build something great.</p>
-			</div>
-		</main>
-	)
+	const [authed, setAuthed] = useState(() => localStorage.getItem(AUTH_KEY) === '1')
+
+	if (!authed) {
+		return <AuthPage onAuth={() => setAuthed(true)} />
+	}
+
+	return <TripPage />
 }
 
