@@ -1,5 +1,4 @@
 import Datastore from '@seald-io/nedb'
-import { londonTrip } from './data/london'
 import type { Trip } from './types'
 
 export interface TripDoc {
@@ -7,21 +6,12 @@ export interface TripDoc {
 	name: string
 	trip: Trip
 	createdAt: string
-	isDemo?: boolean
 }
 
 const _db = new Datastore<TripDoc>({ filename: 'voyo_trips', autoload: true })
 
 export async function initDb(): Promise<void> {
-	const count = await _db.countAsync({})
-	if (count === 0) {
-		await _db.insertAsync({
-			name: 'Londres',
-			trip: londonTrip,
-			createdAt: new Date().toISOString(),
-			isDemo: true,
-		} as TripDoc)
-	}
+	// no-op: DB auto-loads via autoload:true
 }
 
 export async function findAllTrips(): Promise<TripDoc[]> {

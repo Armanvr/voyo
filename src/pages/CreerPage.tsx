@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks'
+import { useRef, useState } from 'preact/hooks'
 import { insertTrip } from '../db'
 import type { Day, Step, Trip } from '../types'
 
@@ -124,6 +124,19 @@ interface CreerPageProps {
 	onBack: () => void
 }
 
+function validateTrip(data: unknown): data is Trip {
+	if (!data || typeof data !== 'object') return false
+	const d = data as Record<string, unknown>
+	if (!d.sejour || typeof d.sejour !== 'object') return false
+	const sejour = d.sejour as Record<string, unknown>
+	if (typeof sejour.destination !== 'string' || !sejour.destination) return false
+	if (!Array.isArray(d.jours) || d.jours.length === 0) return false
+	return (d.jours as unknown[]).every((j) => {
+		if (!j || typeof j !== 'object') return false
+		return Array.isArray((j as Record<string, unknown>).etapes)
+	})
+}
+
 export function CreerPage({ onSaved, onBack }: CreerPageProps) {
 	const [form, setForm] = useState<FormState>({
 		destination: '',
@@ -135,6 +148,48 @@ export function CreerPage({ onSaved, onBack }: CreerPageProps) {
 	})
 	const [saving, setSaving] = useState(false)
 	const [error, setError] = useState('')
+	const [importing, setImporting] = useState(false)
+	const [importError, setImportError] = useState('')
+	const fileInputRef = useRef<HTMLInputElement>(null)
+
+	function handleImportClick() {
+		setImportError('')
+		fileInputRef.current?.click()
+	}
+
+	async function handleFileChange(e: Event) {
+		const file = (e.target as HTMLInputElement).files?.[0]
+		if (!fileInputRef.current) return
+		fileInputRef.current.value = ''
+		if (!file) return
+		setImporting(true)
+		setImportError('')
+		try {
+			const text = await file.text()
+			let parsed: unknown
+			try {
+				parsed = JSON.parse(text)
+			} catch {
+				setImportError('JSON mal formé — vérifiez la syntaxe du fichier.')
+				setImporting(false)
+				return
+			}
+			if (!validateTrip(parsed)) {
+				setImportError('JSON mal formé — structure invalide (sejour, destination, jours, etapes requis).')
+				setImporting(false)
+				return
+			}
+			await insertTrip({
+				name: parsed.sejour.destination,
+				trip: parsed,
+				createdAt: new Date().toISOString(),
+			})
+			onSaved()
+		} catch {
+			setImportError('Erreur lors de l\'import.')
+			setImporting(false)
+		}
+	}
 
 	function setField<K extends keyof FormState>(key: K, val: FormState[K]) {
 		setForm((f) => ({ ...f, [key]: val }))
@@ -233,6 +288,35 @@ export function CreerPage({ onSaved, onBack }: CreerPageProps) {
 				<div>
 					<p class='text-[10px] font-bold text-sand uppercase tracking-widest'>Voyo</p>
 					<h1 class='text-2xl font-black text-ink'>Nouveau voyage</h1>
+				</div>
+			</div>
+
+			{/* Import JSON */}
+			<div class='px-4 mb-6'>
+				<input
+					ref={fileInputRef}
+					type='file'
+					accept='.json,application/json'
+					class='hidden'
+					onChange={handleFileChange}
+				/>
+				<button
+					type='button'
+					onClick={handleImportClick}
+					disabled={importing}
+					class='w-full py-3 border border-ink/20 text-ink font-black text-sm uppercase tracking-widest flex items-center justify-center gap-2 hover:border-primary hover:text-primary transition-colors disabled:opacity-50'
+				>
+					<svg viewBox='0 0 16 16' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' class='w-4 h-4' aria-hidden='true'>
+						<path d='M8 10V3M5 6l3-3 3 3' />
+						<path d='M3 12h10' />
+					</svg>
+					{importing ? 'Import…' : 'Importer un JSON'}
+				</button>
+				{importError && <p class='mt-2 text-xs text-red-400 font-bold'>{importError}</p>}
+				<div class='flex items-center gap-3 mt-5'>
+					<div class='flex-1 h-px bg-ink/10' />
+					<span class='text-[10px] font-bold text-sand uppercase tracking-widest'>ou créer manuellement</span>
+					<div class='flex-1 h-px bg-ink/10' />
 				</div>
 			</div>
 

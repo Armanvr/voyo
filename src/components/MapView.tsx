@@ -27,7 +27,7 @@ export function MapView({ day, completedOrders, onMarkerClick, focusOrdre }: Map
 	useEffect(() => {
 		if (!containerRef.current || mapRef.current) return
 		const map = L.map(containerRef.current, { zoomControl: false })
-		L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+		L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
 			attribution:
 				'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/attributions">CARTO</a>',
 			maxZoom: 19,
@@ -58,7 +58,7 @@ export function MapView({ day, completedOrders, onMarkerClick, focusOrdre }: Map
 			const done = completedOrders.includes(step.ordre)
 			const isActive = step.ordre === nextOrdre
 
-			const color = done ? '#5B4E8C' : isActive ? '#FFC857' : '#1E1B3A'
+			const color = done ? '#2DDBB0' : isActive ? '#FFC820' : '#2B2D42'
 			const size = isActive ? 18 : 12
 
 			const marker = L.marker([step.coordonnees.lat, step.coordonnees.lon], {

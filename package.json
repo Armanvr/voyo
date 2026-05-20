@@ -1,14 +1,15 @@
 {
 	"name": "voyo",
 	"private": true,
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Mobile-first travel planning app. Create trips, visualise your itinerary on an interactive map, check off stops as you go.",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
 		"preview": "vite preview",
-		"lint": "biome check ."
+		"lint": "biome check .",
+		"lint:fix": "biome check . --fix --unsafe"
 	},
 	"dependencies": {
 		"@seald-io/nedb": "^4.1.2",

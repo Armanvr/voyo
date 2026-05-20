@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.6.0] — 2026-05-20 — Session 2
+
+### Added
+- **Import JSON** — bouton "Importer un JSON" dans CreerPage, avant le formulaire
+  - File picker `.json`, validation structure (`sejour.destination` + `jours[].etapes`)
+  - Erreur explicite si JSON mal formé (syntaxe ou structure)
+  - Import valide → `insertTrip` direct → redirection Voyages
+  - Séparateur "ou créer manuellement" entre import et formulaire
+
+### Changed
+- **Auth code** déplacé dans `.env` (`VITE_AUTH_CODE`) — retiré du code source
+- **London démo** supprimé — `src/data/london.ts`, `src/data/london.json` retirés, `initDb()` simplifiée (no-op)
+- **Palette Voyo** (navy/pink/yellow/mint) — remplace palette indigo/violet/or/teal
+  - `primary` `#FFC820` jaune | `ink` `#2B2D42` navy | `paper` `#F7F7F7` off-white
+  - `blush`/`sand` `#EF6D8A` rose | `accent` `#2DDBB0` mint
+  - Ajout `black` `#000000` + `white` `#FFFFFF`
+- **Marqueurs carte** : jaune (actif), mint (fait), navy (à venir)
+- **Tiles Leaflet** : CartoDB Positron → CartoDB Voyager (puis Dark testé)
+- `isDemo` retiré de `TripDoc` (plus de trip démo)
+
+---
+
 ## [0.5.0] — 2026-05-20 — Palette Voyo v5
 
 ### Changed
