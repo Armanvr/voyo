@@ -97,7 +97,6 @@ export function VoyagesPage({ onOpenTrip }: VoyagesPageProps) {
 								<p class='text-xs text-sand mt-0.5'>
 									{doc.trip.jours.length} jour{doc.trip.jours.length > 1 ? 's' : ''}
 									{doc.trip.sejour.dates.arrivee ? ` · ${doc.trip.sejour.dates.arrivee}` : ''}
-									{doc.isDemo ? ' · Demo' : ''}
 								</p>
 							</div>
 
@@ -142,32 +141,30 @@ export function VoyagesPage({ onOpenTrip }: VoyagesPageProps) {
 								Exporter
 							</button>
 
-							{!doc.isDemo && (
-								<button
-									type='button'
-									onClick={(e) => {
-										e.stopPropagation()
-										handleDelete(doc)
-									}}
-									disabled={deletingId === doc._id}
-									class='flex items-center gap-1.5 px-3 py-2 text-[10px] font-black uppercase tracking-widest text-sand hover:text-red-400 hover:bg-red-400/5 transition-colors disabled:opacity-40'
-									aria-label={`Supprimer ${doc.name}`}
+							<button
+								type='button'
+								onClick={(e) => {
+									e.stopPropagation()
+									handleDelete(doc)
+								}}
+								disabled={deletingId === doc._id}
+								class='flex items-center gap-1.5 px-3 py-2 text-[10px] font-black uppercase tracking-widest text-sand hover:text-red-400 hover:bg-red-400/5 transition-colors disabled:opacity-40'
+								aria-label={`Supprimer ${doc.name}`}
+							>
+								<svg
+									viewBox='0 0 16 16'
+									fill='none'
+									stroke='currentColor'
+									stroke-width='1.5'
+									stroke-linecap='round'
+									stroke-linejoin='round'
+									class='w-3 h-3'
+									aria-hidden='true'
 								>
-									<svg
-										viewBox='0 0 16 16'
-										fill='none'
-										stroke='currentColor'
-										stroke-width='1.5'
-										stroke-linecap='round'
-										stroke-linejoin='round'
-										class='w-3 h-3'
-										aria-hidden='true'
-									>
-										<path d='M3 4h10M6 4V2h4v2M5 4v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V4' />
-									</svg>
-									{deletingId === doc._id ? '…' : 'Supprimer'}
-								</button>
-							)}
+									<path d='M3 4h10M6 4V2h4v2M5 4v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V4' />
+								</svg>
+								{deletingId === doc._id ? '…' : 'Supprimer'}
+							</button>
 						</div>
 					</li>
 				))}
