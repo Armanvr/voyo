@@ -1,7 +1,7 @@
 {
 	"name": "voyo",
 	"private": true,
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Mobile-first travel planning app. Create trips, visualise your itinerary on an interactive map, check off stops as you go.",
 	"type": "module",
 	"scripts": {

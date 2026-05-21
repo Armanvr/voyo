@@ -1,10 +1,26 @@
 import { useEffect, useState } from 'preact/hooks'
+import londonTrip from '../data/londres_planning_v2.json'
 import type { TripDoc } from '../db'
 import { findAllTrips, removeTrip } from '../db'
+import type { Trip } from '../types'
 
 interface VoyagesPageProps {
 	onOpenTrip: (doc: TripDoc) => void
 }
+
+interface ListedTripDoc extends TripDoc {
+	isShared?: boolean
+}
+
+const SHARED_TRIPS: ListedTripDoc[] = [
+	{
+		_id: 'shared-london',
+		name: 'Londres',
+		trip: londonTrip as Trip,
+		createdAt: '2026-05-27T00:00:00.000Z',
+		isShared: true,
+	},
+]
 
 function exportTrip(doc: TripDoc) {
 	const json = JSON.stringify(doc.trip, null, 2)
@@ -21,6 +37,7 @@ export function VoyagesPage({ onOpenTrip }: VoyagesPageProps) {
 	const [trips, setTrips] = useState<TripDoc[]>([])
 	const [loading, setLoading] = useState(true)
 	const [deletingId, setDeletingId] = useState<string | null>(null)
+	const listedTrips: ListedTripDoc[] = [...SHARED_TRIPS, ...trips]
 
 	async function load() {
 		setLoading(true)
@@ -57,14 +74,14 @@ export function VoyagesPage({ onOpenTrip }: VoyagesPageProps) {
 				<h1 class='text-3xl font-black text-ink'>Mes voyages</h1>
 			</div>
 
-			{trips.length === 0 && (
+			{listedTrips.length === 0 && (
 				<div class='px-4 py-12 text-center'>
 					<p class='text-sand text-sm'>Aucun voyage. Créez le premier.</p>
 				</div>
 			)}
 
 			<ul class='divide-y divide-ink/8'>
-				{trips.map((doc) => (
+				{listedTrips.map((doc) => (
 					<li key={doc._id} class='group'>
 						{/* Card — clickable zone clearly separated */}
 						<button
@@ -97,6 +114,7 @@ export function VoyagesPage({ onOpenTrip }: VoyagesPageProps) {
 								<p class='text-xs text-sand mt-0.5'>
 									{doc.trip.jours.length} jour{doc.trip.jours.length > 1 ? 's' : ''}
 									{doc.trip.sejour.dates.arrivee ? ` · ${doc.trip.sejour.dates.arrivee}` : ''}
+									{doc.isShared ? ' · Partagé' : ''}
 								</p>
 							</div>
 
@@ -141,30 +159,32 @@ export function VoyagesPage({ onOpenTrip }: VoyagesPageProps) {
 								Exporter
 							</button>
 
-							<button
-								type='button'
-								onClick={(e) => {
-									e.stopPropagation()
-									handleDelete(doc)
-								}}
-								disabled={deletingId === doc._id}
-								class='flex items-center gap-1.5 px-3 py-2 text-[10px] font-black uppercase tracking-widest text-sand hover:text-red-400 hover:bg-red-400/5 transition-colors disabled:opacity-40'
-								aria-label={`Supprimer ${doc.name}`}
-							>
-								<svg
-									viewBox='0 0 16 16'
-									fill='none'
-									stroke='currentColor'
-									stroke-width='1.5'
-									stroke-linecap='round'
-									stroke-linejoin='round'
-									class='w-3 h-3'
-									aria-hidden='true'
+							{!doc.isShared && (
+								<button
+									type='button'
+									onClick={(e) => {
+										e.stopPropagation()
+										handleDelete(doc)
+									}}
+									disabled={deletingId === doc._id}
+									class='flex items-center gap-1.5 px-3 py-2 text-[10px] font-black uppercase tracking-widest text-sand hover:text-red-400 hover:bg-red-400/5 transition-colors disabled:opacity-40'
+									aria-label={`Supprimer ${doc.name}`}
 								>
-									<path d='M3 4h10M6 4V2h4v2M5 4v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V4' />
-								</svg>
-								{deletingId === doc._id ? '…' : 'Supprimer'}
-							</button>
+									<svg
+										viewBox='0 0 16 16'
+										fill='none'
+										stroke='currentColor'
+										stroke-width='1.5'
+										stroke-linecap='round'
+										stroke-linejoin='round'
+										class='w-3 h-3'
+										aria-hidden='true'
+									>
+										<path d='M3 4h10M6 4V2h4v2M5 4v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V4' />
+									</svg>
+									{deletingId === doc._id ? '…' : 'Supprimer'}
+								</button>
+							)}
 						</div>
 					</li>
 				))}

@@ -1,0 +1,838 @@
+{
+  "sejour": {
+    "destination": "Londres",
+    "hotel": {
+      "nom": "Hotel Amelia Street",
+      "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+      "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+      "metro_proche": "Elephant & Castle (Bakerloo + Northern line, ~10 min à pied)"
+    },
+    "dates": {
+      "arrivee": "2026-05-27",
+      "depart": "2026-05-31",
+      "duree_nuits": 4
+    },
+    "infos_transport": {
+      "carte_recommandee": "Oyster Card",
+      "modes_utilises": ["bus", "metro", "pied", "bateau_canal", "bateau_tamise"],
+      "taux_change": "1 GBP = 1.15 EUR"
+    }
+  },
+  "jours": [
+    {
+      "jour": 1,
+      "date": "2026-05-27",
+      "jour_semaine": "Mercredi",
+      "theme": "Arrivée St Pancras - South Bank - Tower Bridge - The Shard - Tate Modern - Graffiti Tunnel",
+      "contrainte": "Arrivée Eurostar 10h30 à St Pancras - delta 1h30 avant de démarrer",
+      "depart_hotel": "12:00",
+      "retour_hotel": "21:30",
+      "etapes": [
+        {
+          "ordre": 0,
+          "lieu": "St Pancras International",
+          "adresse": "Euston Rd, London N1C 4QP",
+          "coordonnees": { "lat": 51.5311, "lon": -0.1259 },
+          "heure_arrivee": "10:30",
+          "type": "arrivee",
+          "note": "Arrivée Eurostar"
+        },
+        {
+          "ordre": 1,
+          "lieu": "Hôtel - 18 Amelia Street",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_arrivee": "11:15",
+          "heure_depart": "12:00",
+          "type": "hotel_depot_bagages",
+          "note": "Dépôt des bagages - pause avant de repartir",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "St Pancras → Elephant & Castle (Northern line)",
+            "duree_min": 30,
+            "cout_gbp_par_pers": 2.80
+          }
+        },
+        {
+          "ordre": 2,
+          "lieu": "Borough Market",
+          "adresse": "8 Southwark St, London SE1 1TL",
+          "coordonnees": { "lat": 51.505583, "lon": -0.090481 },
+          "heure_arrivee": "12:30",
+          "duree_min": 60,
+          "type": "dejeuner",
+          "gratuit": true,
+          "note": "Déjeuner au marché - Street food international. Alternative : Honest Burgers (5-7 Southwark Street)",
+          "alternatives": [
+            {
+              "nom": "Honest Burgers",
+              "adresse": "5-7 Southwark Street, London SE1 1RQ",
+              "coordonnees": { "lat": 51.505300, "lon": -0.091200 }
+            }
+          ],
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 30,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 3,
+          "lieu": "London Bridge",
+          "adresse": "London Bridge, London SE1 9RA",
+          "coordonnees": { "lat": 51.507973, "lon": -0.087605 },
+          "heure_arrivee": "13:45",
+          "duree_min": 20,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Balade dans le quartier London Bridge - vue sur la Tamise",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 13,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 4,
+          "lieu": "Tower Bridge",
+          "adresse": "Tower Bridge Rd, London SE1 2UP",
+          "coordonnees": { "lat": 51.505456, "lon": -0.075356 },
+          "heure_arrivee": "14:20",
+          "duree_min": 45,
+          "type": "attraction",
+          "gratuit": false,
+          "note": "Vue extérieure gratuite. Expo intérieure optionnelle.",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 15,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 5,
+          "lieu": "The Shard",
+          "adresse": "32 London Bridge St, London SE1 9SG",
+          "coordonnees": { "lat": 51.504540, "lon": -0.086500 },
+          "heure_arrivee": "15:20",
+          "duree_min": 60,
+          "type": "attraction",
+          "gratuit": false,
+          "note": "Vue panoramique - Réserver en ligne. Balade South Bank très sympa entre Tower Bridge et The Shard (artistes de rue, vue sur St Paul, ambiance vivante).",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "trajet": "Via South Bank",
+            "duree_min": 15,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 6,
+          "lieu": "Tate Modern",
+          "adresse": "Bankside, London SE1 9TG",
+          "coordonnees": { "lat": 51.507595, "lon": -0.099356 },
+          "heure_arrivee": "16:45",
+          "duree_min": 75,
+          "type": "culture",
+          "gratuit": true,
+          "note": "Gratuit - Ambiance underground très sympa le soir",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "trajet": "Via South Bank",
+            "duree_min": 20,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 7,
+          "lieu": "Graffiti Tunnel (Leake Street)",
+          "adresse": "Leake Street, Lambeth, SE1 7NN",
+          "coordonnees": { "lat": 51.501834, "lon": -0.115544 },
+          "heure_arrivee": "18:15",
+          "duree_min": 30,
+          "type": "culture",
+          "gratuit": true,
+          "note": "Street art légendaire - Ouvert 24h/24",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 11,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 8,
+          "lieu": "Dîner - Franco Manca",
+          "adresse": "77 The Cut, London SE1 8PP",
+          "coordonnees": { "lat": 51.502800, "lon": -0.113200 },
+          "heure_arrivee": "18:50",
+          "duree_min": 60,
+          "type": "diner",
+          "note": "Pizzas - Excellent rapport qualité/prix - À côté du Graffiti Tunnel",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 9,
+          "lieu": "Balade South Bank de nuit",
+          "adresse": "South Bank, London SE1",
+          "coordonnees": { "lat": 51.506100, "lon": -0.107000 },
+          "heure_arrivee": "20:00",
+          "duree_min": 45,
+          "type": "balade_optionnelle",
+          "gratuit": true,
+          "note": "Si pas trop fatigués - Illuminations - Waterloo, Tate Modern, St Paul, Tower Bridge de nuit",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 10,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_arrivee": "21:30",
+          "type": "retour",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "trajet": "South Bank → Amelia Street",
+            "duree_min": 20,
+            "cout_gbp_par_pers": 0
+          }
+        }
+      ]
+    },
+    {
+      "jour": 2,
+      "date": "2026-05-28",
+      "jour_semaine": "Jeudi",
+      "theme": "Oxford Street - Carnaby Street - Soho - Chinatown - Piccadilly - Trafalgar - Neal's Yard - Covent Garden",
+      "depart_hotel": "10:00",
+      "retour_hotel": "20:00",
+      "etapes": [
+        {
+          "ordre": 0,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_depart": "10:00",
+          "type": "depart"
+        },
+        {
+          "ordre": 1,
+          "lieu": "Oxford Circus",
+          "adresse": "Oxford Circus, London W1B 3AG",
+          "coordonnees": { "lat": 51.515400, "lon": -0.141900 },
+          "heure_arrivee": "10:25",
+          "type": "arrivee_metro",
+          "note": "Arrivée metro - Début de la balade West End",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Elephant & Castle → Oxford Circus (Bakerloo line)",
+            "duree_min": 22,
+            "cout_gbp_par_pers": 2.80
+          }
+        },
+        {
+          "ordre": 2,
+          "lieu": "Oxford Street + Regent Street",
+          "adresse": "Oxford Street, London W1C 1JN",
+          "coordonnees": { "lat": 51.515255, "lon": -0.142019 },
+          "heure_arrivee": "10:30",
+          "duree_min": 30,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Descendre Regent Street depuis Oxford Circus",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 2,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 3,
+          "lieu": "Carnaby Street",
+          "adresse": "Carnaby Street, London W1F 7DY",
+          "coordonnees": { "lat": 51.513186, "lon": -0.138855 },
+          "heure_arrivee": "11:05",
+          "duree_min": 20,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Rue piétonne branchée - Boutiques indépendantes",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 10,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 4,
+          "lieu": "Soho",
+          "adresse": "Soho, London W1D",
+          "coordonnees": { "lat": 51.513000, "lon": -0.133000 },
+          "heure_arrivee": "11:30",
+          "duree_min": 20,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Quartier vivant et éclectique",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 5,
+          "lieu": "Chinatown",
+          "adresse": "Gerrard Street, London W1D 5PT",
+          "coordonnees": { "lat": 51.511770, "lon": -0.131150 },
+          "heure_arrivee": "11:55",
+          "duree_min": 20,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Gerrard Street - Pagodes et enseignes chinoises",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 6,
+          "lieu": "Piccadilly Circus",
+          "adresse": "Piccadilly Circus, London W1J 9HP",
+          "coordonnees": { "lat": 51.509865, "lon": -0.134190 },
+          "heure_arrivee": "12:20",
+          "duree_min": 15,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Carrefour mythique - Magasin de jouets Hamleys à proximité (Regent Street)",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 3,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 7,
+          "lieu": "Trafalgar Square",
+          "adresse": "Trafalgar Square, London WC2N 5DN",
+          "coordonnees": { "lat": 51.508039, "lon": -0.128069 },
+          "heure_arrivee": "12:40",
+          "duree_min": 20,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Colonne Nelson - Fontaines - Lions en bronze",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 10,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 8,
+          "lieu": "Neal's Yard",
+          "adresse": "Neal's Yard, Covent Garden, WC2H 9DP",
+          "coordonnees": { "lat": 51.513870, "lon": -0.126700 },
+          "heure_arrivee": "13:10",
+          "duree_min": 15,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Petite cour colorée cachée - Idéale pour une photo",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 13,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 9,
+          "lieu": "Covent Garden Market",
+          "adresse": "Covent Garden, London WC2E 8RF",
+          "coordonnees": { "lat": 51.511657, "lon": -0.124044 },
+          "heure_arrivee": "13:30",
+          "duree_min": 90,
+          "type": "dejeuner",
+          "gratuit": true,
+          "note": "Déjeuner à emporter possible - Artistes de rue - Ambiance festive",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 3,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 10,
+          "lieu": "Leicester Square",
+          "adresse": "Leicester Square, London WC2H 7NA",
+          "coordonnees": { "lat": 51.510359, "lon": -0.130062 },
+          "heure_arrivee": "15:10",
+          "type": "transit_metro",
+          "note": "Prise du métro direction Kennington",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 6,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 11,
+          "lieu": "Kennington",
+          "adresse": "Kennington Station, London SE11 5QY",
+          "coordonnees": { "lat": 51.488300, "lon": -0.105400 },
+          "heure_arrivee": "15:25",
+          "type": "transit_metro",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Leicester Square → Kennington (Northern line)",
+            "duree_min": 8,
+            "cout_gbp_par_pers": 2.40
+          }
+        },
+        {
+          "ordre": 12,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_arrivee": "15:40",
+          "type": "retour",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 11,
+            "cout_gbp_par_pers": 0
+          }
+        }
+      ]
+    },
+    {
+      "jour": 3,
+      "date": "2026-05-29",
+      "jour_semaine": "Vendredi",
+      "theme": "Relève de la Garde - St James Park - Westminster - Big Ben - Horse Guards Parade",
+      "evenement_special": "Relève de la Garde - Buckingham Palace - ~11h00 (confirmé vendredi 29 mai)",
+      "depart_hotel": "09:30",
+      "retour_hotel": "20:00",
+      "etapes": [
+        {
+          "ordre": 0,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_depart": "09:30",
+          "type": "depart",
+          "note": "Départ un peu plus tôt pour être en place avant la cérémonie"
+        },
+        {
+          "ordre": 1,
+          "lieu": "Buckingham Palace - Relève de la Garde",
+          "adresse": "Buckingham Palace, London SW1A 1AA",
+          "coordonnees": { "lat": 51.501364, "lon": -0.141890 },
+          "heure_arrivee": "10:30",
+          "heure_ceremonie": "11:00",
+          "fin_ceremonie": "11:45",
+          "duree_min": 75,
+          "type": "evenement",
+          "gratuit": true,
+          "note": "Arriver à 10h30 pour avoir une bonne place - Spots recommandés : Victoria Memorial ou grille nord du palais",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Elephant & Castle → Victoria (Victoria line)",
+            "duree_min": 20,
+            "cout_gbp_par_pers": 2.80
+          }
+        },
+        {
+          "ordre": 2,
+          "lieu": "Déjeuner - Quartier Westminster",
+          "adresse": "Victoria Street / Westminster, London SW1",
+          "coordonnees": { "lat": 51.498500, "lon": -0.137000 },
+          "heure_arrivee": "12:00",
+          "duree_min": 60,
+          "type": "dejeuner",
+          "note": "Nombreux cafés et restaurants autour de Victoria et Westminster",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 10,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 3,
+          "lieu": "St James's Park",
+          "adresse": "St James's Park, London SW1A 2BJ",
+          "coordonnees": { "lat": 51.502472, "lon": -0.135050 },
+          "heure_arrivee": "13:10",
+          "duree_min": 40,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Parc royal le plus élégant de Londres - Lac avec pélicans - Vue sur Buckingham et Horse Guards",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 10,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 4,
+          "lieu": "Westminster Abbey",
+          "adresse": "20 Deans Yd, Westminster, London SW1P 3PA",
+          "coordonnees": { "lat": 51.499370, "lon": -0.127299 },
+          "heure_arrivee": "14:00",
+          "duree_min": 60,
+          "type": "attraction",
+          "gratuit": false,
+          "note": "Audioguide inclus - Couronnes royales depuis 1066 - Réserver en ligne",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 15,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 5,
+          "lieu": "Houses of Parliament + Big Ben",
+          "adresse": "Westminster Bridge Rd, London SW1A 2PW",
+          "coordonnees": { "lat": 51.499600, "lon": -0.124580 },
+          "heure_arrivee": "15:10",
+          "duree_min": 30,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Vue extérieure - Photo depuis le Westminster Bridge - Incontournable",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 6,
+          "lieu": "Horse Guards Parade",
+          "adresse": "Horse Guards, Whitehall, London SW1A 2AX",
+          "coordonnees": { "lat": 51.504000, "lon": -0.128600 },
+          "heure_arrivee": "15:50",
+          "duree_min": 20,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Cavaliers de la Garde royale en faction - Passage gratuit",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 10,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 7,
+          "lieu": "Balade en bateau sur la Tamise",
+          "adresse": "Westminster Pier, Victoria Embankment, SW1A 2JH",
+          "coordonnees": { "lat": 51.501000, "lon": -0.121800 },
+          "heure_arrivee": "16:20",
+          "duree_min": 60,
+          "type": "balade_optionnelle",
+          "gratuit": false,
+          "note": "Optionnel - Thames Clipper ou City Cruises depuis Westminster Pier - Vue sur Tower Bridge, St Paul, Tate Modern",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 10,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 8,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_arrivee": "18:00",
+          "type": "retour",
+          "note": "Dîner dans le quartier de l'hôtel (Elephant & Castle / Kennington)",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Westminster → Elephant & Castle (Bakerloo line)",
+            "duree_min": 15,
+            "cout_gbp_par_pers": 2.80
+          }
+        }
+      ]
+    },
+    {
+      "jour": 4,
+      "date": "2026-05-30",
+      "jour_semaine": "Samedi",
+      "theme": "Portobello Road Market - Kensington Gardens - Kensington Palace - Royal Albert Hall - Natural History Museum",
+      "depart_hotel": "10:00",
+      "retour_hotel": "21:00",
+      "etapes": [
+        {
+          "ordre": 0,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_depart": "10:00",
+          "type": "depart"
+        },
+        {
+          "ordre": 1,
+          "lieu": "Notting Hill Gate Station",
+          "adresse": "Notting Hill Gate Station, London W11 3HT",
+          "coordonnees": { "lat": 51.509300, "lon": -0.196900 },
+          "heure_arrivee": "10:40",
+          "type": "arrivee_metro",
+          "note": "Arrivée metro - Direction marché Portobello",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Elephant & Castle → Notting Hill Gate (via Victoria + Circle/District)",
+            "duree_min": 35,
+            "cout_gbp_par_pers": 2.80
+          }
+        },
+        {
+          "ordre": 2,
+          "lieu": "Portobello Road Market",
+          "adresse": "Portobello Road, London W11 1LU",
+          "coordonnees": { "lat": 51.517000, "lon": -0.205847 },
+          "heure_arrivee": "10:45",
+          "duree_min": 120,
+          "type": "marche",
+          "gratuit": true,
+          "note": "Marché vintage mythique - Le samedi est le jour le plus animé (9h-19h) - Antiquités, vinyle, street food",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 3,
+          "lieu": "Déjeuner - Notting Hill / Portobello",
+          "adresse": "Portobello Road, Notting Hill, London W11",
+          "coordonnees": { "lat": 51.516000, "lon": -0.204000 },
+          "heure_arrivee": "12:50",
+          "duree_min": 60,
+          "type": "dejeuner",
+          "note": "Nombreux restaurants et cafés dans le quartier Notting Hill",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 2,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 4,
+          "lieu": "Kensington Gardens",
+          "adresse": "Kensington Gardens, London W2 2UH",
+          "coordonnees": { "lat": 51.505600, "lon": -0.180800 },
+          "heure_arrivee": "14:10",
+          "duree_min": 30,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Jardins royaux - Serpentine Gallery - Round Pond",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 22,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 5,
+          "lieu": "Kensington Palace",
+          "adresse": "Kensington Palace, Kensington Gardens, London W8 4PX",
+          "coordonnees": { "lat": 51.504976, "lon": -0.187681 },
+          "heure_arrivee": "14:50",
+          "duree_min": 60,
+          "type": "attraction",
+          "gratuit": false,
+          "note": "Ancienne résidence de Diana - Hyde Park adjacent - Réserver en ligne",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 17,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 6,
+          "lieu": "Royal Albert Hall",
+          "adresse": "Kensington Gore, London SW7 2AP",
+          "coordonnees": { "lat": 51.500900, "lon": -0.177400 },
+          "heure_arrivee": "16:05",
+          "duree_min": 15,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Vue extérieure uniquement - Architecture victorienne spectaculaire",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 9,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 7,
+          "lieu": "Natural History Museum",
+          "adresse": "Cromwell Rd, South Kensington, London SW7 5BD",
+          "coordonnees": { "lat": 51.496715, "lon": -0.176367 },
+          "heure_arrivee": "16:25",
+          "duree_min": 150,
+          "type": "culture",
+          "gratuit": true,
+          "note": "Gratuit - 2h-3h de visite - Baleine bleue monumentale - Dinosaures - Minéraux",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 8,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 8,
+          "lieu": "Dîner - South Kensington",
+          "adresse": "South Kensington, London SW7",
+          "coordonnees": { "lat": 51.494200, "lon": -0.174600 },
+          "heure_arrivee": "19:05",
+          "duree_min": 75,
+          "type": "diner",
+          "note": "Au choix : Dishoom Kensington / Flat Iron South Kensington / Honest Burgers South Kensington",
+          "alternatives": [
+            {
+              "nom": "Dishoom Kensington",
+              "adresse": "Barkers Building, 63-69 Kensington High St, London W8 5SE",
+              "coordonnees": { "lat": 51.501800, "lon": -0.192400 }
+            },
+            {
+              "nom": "Flat Iron South Kensington",
+              "adresse": "South Kensington, London SW7",
+              "coordonnees": { "lat": 51.494000, "lon": -0.175000 }
+            },
+            {
+              "nom": "Honest Burgers South Kensington",
+              "adresse": "South Kensington, London SW7",
+              "coordonnees": { "lat": 51.494200, "lon": -0.174800 }
+            }
+          ],
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 5,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 9,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_arrivee": "21:00",
+          "type": "retour",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "South Kensington → Elephant & Castle (District + Northern / Circle)",
+            "duree_min": 35,
+            "cout_gbp_par_pers": 2.80
+          }
+        }
+      ]
+    },
+    {
+      "jour": 5,
+      "date": "2026-05-31",
+      "jour_semaine": "Dimanche",
+      "theme": "Little Venice - Bateau canal → Camden Lock - Camden Town - St Pancras (train 17h30)",
+      "contrainte": "Arrivée St Pancras pour 16h00 MAX - Train Eurostar 17h30",
+      "point_final": "St Pancras International Station",
+      "depart_hotel": "10:00",
+      "arrivee_gare": "16:00",
+      "train_depart": "17:30",
+      "etapes": [
+        {
+          "ordre": 0,
+          "lieu": "Hôtel",
+          "adresse": "18 Amelia Street, Southwark, SE17 3PY",
+          "coordonnees": { "lat": 51.48998, "lon": -0.09768 },
+          "heure_depart": "10:00",
+          "type": "depart",
+          "note": "Départ avec bagages - Penser à la consigne à St Pancras ou à l'hôtel si possible"
+        },
+        {
+          "ordre": 1,
+          "lieu": "Little Venice",
+          "adresse": "Blomfield Road, Maida Vale, London W9 2PA",
+          "coordonnees": { "lat": 51.521199, "lon": -0.182780 },
+          "heure_arrivee": "10:45",
+          "duree_min": 15,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Jonction des canaux Regent's Canal et Grand Union Canal - Péniches colorées - Calme absolu",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Elephant & Castle → Baker Street (Bakerloo line) → Warwick Avenue (Bakerloo)",
+            "duree_min": 35,
+            "cout_gbp_par_pers": 2.80
+          }
+        },
+        {
+          "ordre": 2,
+          "lieu": "Embarcadère Little Venice → Camden",
+          "adresse": "Blomfield Road, Little Venice, London W9 2PF",
+          "coordonnees": { "lat": 51.521500, "lon": -0.183200 },
+          "heure_arrivee": "11:00",
+          "heure_bateau": "11:00",
+          "type": "transit_bateau",
+          "note": "Bateau canal London Waterbus Company ou Jason's Trip - Traversée 45-60 min - Vue sur Regent's Park depuis le canal",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 3,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 3,
+          "lieu": "Camden Lock",
+          "adresse": "Camden Lock, Chalk Farm Rd, London NW1 8AF",
+          "coordonnees": { "lat": 51.539026, "lon": -0.142552 },
+          "heure_arrivee": "12:00",
+          "duree_min": 120,
+          "type": "marche_dejeuner",
+          "gratuit": true,
+          "note": "Arrivée en bateau - Marché alternatif - Street food international - Balade + déjeuner sur place (1h30-2h)",
+          "transport_depuis_precedent": {
+            "mode": "bateau_canal",
+            "trajet": "Little Venice → Camden Lock (Regent's Canal)",
+            "operateur": "London Waterbus Company ou Jason's Trip",
+            "duree_min": 55,
+            "cout_gbp_par_pers": 14.00
+          }
+        },
+        {
+          "ordre": 4,
+          "lieu": "Camden Town",
+          "adresse": "Camden Town, London NW1 8QP",
+          "coordonnees": { "lat": 51.539200, "lon": -0.143200 },
+          "heure_arrivee": "14:10",
+          "duree_min": 40,
+          "type": "balade",
+          "gratuit": true,
+          "note": "Quartier alternatif - Boutiques insolites - Cyberdog - Ambiance rock",
+          "transport_depuis_precedent": {
+            "mode": "pied",
+            "duree_min": 2,
+            "cout_gbp_par_pers": 0
+          }
+        },
+        {
+          "ordre": 5,
+          "lieu": "St Pancras International",
+          "adresse": "Euston Rd, London N1C 4QP",
+          "coordonnees": { "lat": 51.531100, "lon": -0.125900 },
+          "heure_arrivee": "16:00",
+          "heure_train": "17:30",
+          "type": "point_final",
+          "note": "Récupérer bagages si consigne - Check-in Eurostar - Départ direction Paris",
+          "transport_depuis_precedent": {
+            "mode": "metro",
+            "trajet": "Camden Town → King's Cross St Pancras (Northern line direct)",
+            "duree_min": 12,
+            "cout_gbp_par_pers": 2.40
+          }
+        }
+      ]
+    }
+  ]
+}

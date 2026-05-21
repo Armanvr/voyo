@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.3] — 2026-05-21 — Voyage partagé Londres
+
+### Added
+- **Voyage partagé Londres** — `VoyagesPage` affiche le planning `src/data/londres_planning_v2.json` pour tous les utilisateurs.
+- Badge `Partagé` sur le voyage commun.
+
+### Changed
+- Le voyage partagé n'est pas enregistré en base locale et ne peut pas être supprimé par utilisateur.
+- Export JSON conservé pour le voyage partagé et les voyages personnels.
+
+---
+
 ## [0.6.0] — 2026-05-20 — Session 2
 
 ### Added
